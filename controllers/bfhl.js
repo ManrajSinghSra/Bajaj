@@ -6,7 +6,8 @@ const OFFICIAL_EMAIL = "manraj1323.be23@chitkarauniversity.edu.in";
 async function getAIResponse(question) {
   console.log("AI Step 1: Function started");
 
-  const GEMINI_API_KEY = "AIzaSyCd3vbITH4raJV03VbPRs7IFa2ODkqGHVk";
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
   if (!GEMINI_API_KEY) {
     throw new Error("GEMINI_API_KEY missing in .env");
   }
