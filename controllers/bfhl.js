@@ -3,8 +3,7 @@ const { generateFibonacci, filterPrimes, calculateLCM, calculateHCF } = require(
 const OFFICIAL_EMAIL = "manraj1323.be23@chitkarauniversity.edu.in";
  
 
-async function getAIResponse(question) {
-  console.log("AI Step 1: Function started");
+async function getAIResponse(question) { 
 
   const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -30,8 +29,7 @@ async function getAIResponse(question) {
       })
     }
   );
-
-  console.log("AI Step 2: Status", response.status);
+ 
 
   if (!response.ok) {
     const errText = await response.text();
@@ -41,7 +39,7 @@ async function getAIResponse(question) {
   const data = await response.json();
 
   if (!data?.candidates?.[0]?.content?.parts?.[0]?.text) {
-    throw new Error("Invalid Gemini response structure");
+    throw new Error("Invalid Gemini response");
   }
 
   const raw = data.candidates[0].content.parts[0].text.trim();
